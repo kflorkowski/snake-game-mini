@@ -3,7 +3,7 @@ from turtle import Turtle
 ALIGNMENT = "center"
 
 # Load high score from file
-with open("../data.txt") as file:
+with open("data.txt") as file:
     HIGHSCORE = int(file.read())
 
 
@@ -16,7 +16,7 @@ class Scoreboard(Turtle):
         """Initialize the scoreboard and display the initial scores."""
         super().__init__()
         self.score = 0
-        with open("../data.txt") as data:
+        with open("data.txt") as data:
             self.highscore = int(data.read())
         self.color("white")
         self.hideturtle()
@@ -44,7 +44,7 @@ class Scoreboard(Turtle):
         """
         if self.highscore < self.score:
             self.highscore = self.score
-            with open("../data.txt", mode="w") as data:
+            with open("data.txt", mode="w") as data:
                 data.write(f"{self.highscore}")
         self.score = 0
         self.update_scoreboard()
